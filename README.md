@@ -1,5 +1,3 @@
-Here's a **README** file for your project, clearly explaining its purpose, setup, and usage:
-
 ---
 
 # 🚗 RentalCar - Car Rental Platform  
