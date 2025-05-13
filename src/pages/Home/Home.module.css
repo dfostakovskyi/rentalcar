@@ -1,0 +1,53 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+}
+
+.heroText {
+  color: #fff;
+  max-width: 600px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 18px;
+}
+
+.styledButton {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.styledButton:hover {
+  background-color: #0056b3;
+}
