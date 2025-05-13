@@ -41,15 +41,57 @@ The application will now run at `http://localhost:5173/`.
 ## 📂 Folder Structure  
 ```
 rentalcar/
-│── src/
-│   ├── components/    # UI components like Header, Filters, CarCard
-│   ├── pages/         # Pages like Home, Catalog
-│   ├── redux/         # Redux slices & store
-│   ├── services/      # API calls
-│   ├── assets/        # Images, icons
-│── public/            # Favicon & index.html
-│── package.json
-│── README.md
+src/
+┣ components/
+┃ ┣ CarCard/
+┃ ┃ ┗ CarCard.jsx
+┃ ┣ Header/
+┃ ┃ ┣ Header.jsx
+┃ ┃ ┗ Header.module.css
+┃ ┣ Button.jsx
+┃ ┗ Filters.jsx
+┣ pages/
+┃ ┣ CarDetails/
+┃ ┃ ┗ CarDetails.jsx
+┃ ┣ Catalog/
+┃ ┃ ┗ Catalog.jsx
+┃ ┗ Home/
+┃   ┣ Home.jsx
+┃   ┗ Home.module.css
+┣ redux/
+┃ ┣ middleware/
+┃ ┃ ┗ localStorageMiddleware.js
+┃ ┣ slices/
+┃ ┃ ┣ brandsSlice.js
+┃ ┃ ┣ carsSlice.js
+┃ ┃ ┣ favoritesSlice.js
+┃ ┃ ┣ filtersSlice.js
+┃ ┃ ┗ oneCarSlice.js
+┃ ┗ store.js
+┣ services/
+┃ ┣ api.js
+┃ ┣ bookingService.js
+┃ ┣ format.js
+┃ ┗ localStorage.js
+┣ styles/
+┣ App.jsx
+┣ counter.js
+┣ index.js
+┣ javascript.svg
+┣ main.jsx
+┗ style.css
+public/
+┣ assets/
+┃ ┣ favicon_io/
+┃ ┃ ┣ android-chrome-192x192.png
+┃ ┃ ┣ android-chrome-512x512.png
+┃ ┃ ┣ apple-touch-icon.png
+┃ ┃ ┣ favicon-16x16.png
+┃ ┃ ┣ favicon-32x32.png
+┃ ┃ ┣ favicon.ico
+┃ ┃ ┗ site.webmanifest
+┃ ┗ sprite.svg
+┗ vite.svg
 ```
 
 ## 🔗 API Integration  
