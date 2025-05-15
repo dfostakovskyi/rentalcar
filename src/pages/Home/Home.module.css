@@ -1,53 +1,83 @@
 .container {
+  max-width: 1440px;
+
   width: 100%;
+
+  margin: 0 auto;
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
 .hero {
-  position: relative;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  background-image: url("../../img/Desktop/Hero.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
 }
 
-.heroImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  z-index: -1;
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero {
+    background-image: url("../../img/Desktop/Hero@2x.png");
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .hero {
+    background-image: url("../../img/Desktop/Hero@3x.png");
+  }
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .heroText {
-  color: #fff;
-  max-width: 600px;
+  width: 783px;
+  height: 204px;
+  margin-bottom: 74px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .title {
-  font-size: 36px;
-  font-weight: bold;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 120%;
+  text-align: center;
+  color: white;
+  margin-bottom: 16px;
 }
 
 .description {
-  font-size: 18px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
 }
 
 .styledButton {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 18px;
-  text-decoration: none;
-  border-radius: 5px;
-  display: inline-block;
-  margin-top: 15px;
-  transition: background 0.3s;
+  border-radius: 12px;
+  padding: 12px 88px;
+  width: 276px;
+  height: 44px;
+  background-color: #3470ff;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: white;
+  cursor: pointer;
+  text-align: center;
 }
 
-.styledButton:hover {
-  background-color: #0056b3;
+.styledButton:hover,
+.styledButton:focus {
+  background-color: #0b44cd;
 }
