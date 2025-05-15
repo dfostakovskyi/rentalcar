@@ -1,0 +1,26 @@
+.dropdownButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  width: 32px; /* Додаємо розмір */
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chevronIcon {
+  width: 24px;
+  height: 24px;
+  fill: #646cff; /* Додаємо колір */
+  transition: fill 0.3s ease;
+}
+
+.dropdownButton:hover .chevronIcon {
+  fill: #535bf2; /* Зміна кольору при наведенні */
+}
+.dropdownList li {
+  cursor: pointer;
+  padding: 8px;
+}

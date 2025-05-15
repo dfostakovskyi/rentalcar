@@ -3,8 +3,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCars } from "../../redux/slices/carsSlice";
+import Header from "../../components/Header/Header";
 import CarCard from "../../components/CarCard/CarCard";
-import Filters from "../../components/Filters";
+import Filters from "../../components/Filters/Filters";
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const Catalog = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    setPage(1);
+    console.log("Фільтри перед запитом:", filters); // ✅ Має містити всі параметри
     dispatch(getCars({ filters, page: 1 }));
   }, [dispatch, filters]);
 
@@ -27,13 +28,14 @@ const Catalog = () => {
 
   return (
     <div>
+      <Header />
       <Filters />
       {status === "loading" && <p>Завантаження...</p>}
       {status === "failed" && <p>Помилка завантаження даних.</p>}
 
       <div>
-        {cars.map((car) => (
-          <CarCard key={car.id} car={car} />
+        {cars.map((car, index) => (
+          <CarCard key={`${car.id}-${index}`} car={car} /> // ✅ Гарантовано унікальний ключ
         ))}
       </div>
 

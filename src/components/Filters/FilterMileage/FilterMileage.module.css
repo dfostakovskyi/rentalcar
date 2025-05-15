@@ -1,0 +1,13 @@
+.mileageFilter {
+  margin-bottom: 1rem;
+}
+
+.mileageInputs {
+  display: flex;
+  gap: 1rem;
+}
+
+.mileageInput {
+  padding: 0.5rem;
+  width: 100px;
+}

@@ -1,0 +1,64 @@
+.carCard {
+  width: 276px;
+  height: 424px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  background: #fff;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carCard:hover {
+  transform: scale(1.05);
+}
+
+.carImage {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.favoriteBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.favoriteIcon {
+  width: 24px;
+  height: 24px;
+  fill: #ccc;
+  transition: fill 0.3s;
+}
+
+.favoriteIcon.active {
+  fill: red;
+}
+
+.readMoreBtn {
+  margin-top: auto;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.readMoreBtn:hover {
+  background: #0056b3;
+}
+p {
+  margin: 0;
+  padding: 0;
+}

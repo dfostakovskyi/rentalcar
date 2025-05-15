@@ -12,7 +12,7 @@ const filtersSlice = createSlice({
   },
   reducers: {
     setFilters(state, action) {
-      return action.payload;
+      return { ...state, ...action.payload }; // ✅ Оновлення без втрати значень
     },
     resetFilters(state) {
       return { brand: null, price: null, mileageFrom: null, mileageTo: null };
