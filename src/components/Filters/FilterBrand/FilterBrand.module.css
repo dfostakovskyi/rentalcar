@@ -1,51 +1,86 @@
 .brandFilter {
-  position: relative;
-  margin-bottom: 1rem;
+  width: 204px;
+  height: 68px;
 }
 
 .selectContainer {
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 204px;
+  height: 44px;
+  background-color: #f7f7f7;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
 }
 
+.label {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: #8e929a;
+}
+
 .brandInput {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #101828;
+  border: none;
+  outline: none;
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  background-color: #f7f7f7;
+}
+
+.brandInput::placeholder {
+  color: #101828;
+  opacity: 1;
 }
 
 .chevronButton {
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: 8px;
+  width: 24px;
+  height: 24px;
 }
 
 .dropdownList {
+  display: block;
   position: absolute;
   top: 100%;
   left: 0;
-  background: #fff;
-  border: 1px solid #ccc;
-  list-style: none;
-  padding: 0;
-  max-height: 200px;
+  border: 1px solid #f7f7f7;
+  border-radius: 12px;
+  width: 204px;
+  height: 272px;
+  box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+  background-color: white;
   overflow-y: auto;
-  width: 100%;
   z-index: 10;
+  cursor: pointer;
+  padding: 14px 18px;
+}
+
+.chevronIcon {
+  width: 16px;
+  height: 16px;
+  fill: #646cff;
+  transition: fill 0.3s ease;
 }
 
 .dropdownList li {
-  padding: 8px;
-  cursor: pointer;
+  padding-bottom: 8px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #8e929a;
 }
 
-.dropdownList li:hover {
-  background: #f0f0f0;
-}
-
-.selectedBrand {
-  font-weight: bold; /* ✅ Жирний шрифт для вибраної марки */
+.dropdownList li.selectedBrand {
+  color: #101828;
 }

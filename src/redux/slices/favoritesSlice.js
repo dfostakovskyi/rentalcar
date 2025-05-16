@@ -5,17 +5,16 @@ import { loadFavorites, saveFavorites } from "../../services/localStorage";
 
 const favoritesSlice = createSlice({
   name: "favorites",
-  initialState: { cars: loadFavorites() || [] }, // ✅ Гарантуємо масив
+  initialState: { cars: loadFavorites() || [] },
   reducers: {
     addFavorite(state, action) {
       if (!state.cars.some((car) => car.id === action.payload.id)) {
-        // ✅ Перевіряємо дублювання
         state.cars.push(action.payload);
         saveFavorites(state.cars);
       }
     },
     removeFavorite(state, action) {
-      state.cars = state.cars.filter((car) => car.id !== action.payload); // ✅ Видаляємо авто за `id`
+      state.cars = state.cars.filter((car) => car.id !== action.payload);
       saveFavorites(state.cars);
     },
   },

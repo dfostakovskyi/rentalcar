@@ -1,7 +1,7 @@
 //src\services\format.js
 
 export const formatMileage = (mileage) => {
-  return mileage.toLocaleString("fr-FR") + " km"; // ✅ Використовує пробіл замість коми
+  return mileage.toLocaleString("fr-FR") + " km";
 };
 
 export const formatPrice = (price) => {

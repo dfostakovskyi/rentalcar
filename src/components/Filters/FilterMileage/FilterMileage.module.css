@@ -1,13 +1,102 @@
 .mileageFilter {
-  margin-bottom: 1rem;
+  width: 320px;
+  height: 68px;
 }
 
 .mileageInputs {
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+}
+
+.mileageInputContainerFrom {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #dadde1;
+  border-radius: 12px 0 0 12px;
+  width: 160px;
+  height: 44px;
+  background-color: #f7f7f7;
+
+  padding: 12px 24px;
+}
+
+.mileageInputContainerTo {
+  display: flex;
+  align-items: center;
+  border-radius: 0 12px 12px 0;
+  width: 160px;
+  height: 44px;
+  background-color: #f7f7f7;
+
+  padding: 12px 24px;
+}
+
+.label {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: #8e929a;
 }
 
 .mileageInput {
-  padding: 0.5rem;
-  width: 100px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #101828;
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: #f7f7f7;
+}
+
+.mileageInput::placeholder {
+  color: #101828;
+  opacity: 1;
+}
+
+.dropdownButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+}
+
+.dropdownList {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid #f7f7f7;
+  border-radius: 12px;
+  width: 196px;
+  height: 188px;
+  box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+  background-color: white;
+  overflow-y: auto;
+  z-index: 10;
+  cursor: pointer;
+  padding: 14px 18px;
+}
+
+.chevronIcon {
+  width: 16px;
+  height: 16px;
+  fill: #646cff;
+  transition: fill 0.3s ease;
+}
+
+.dropdownList li {
+  padding-bottom: 8px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #8e929a;
+}
+
+.dropdownList li.selectedItem {
+  color: #101828;
 }

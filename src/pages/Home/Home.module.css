@@ -13,6 +13,7 @@
   background-size: cover;
   background-position: center;
   height: 100vh;
+  margin-top: 72px;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {

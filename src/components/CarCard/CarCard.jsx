@@ -4,7 +4,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/slices/favoritesSlice";
 import { formatMileage, formatPrice, formatDate } from "../../services/format";
-import styles from "./CarCard.module.css"; // Імпорт CSS-модуля
+import styles from "./CarCard.module.css";
 
 const CarCard = ({ car }) => {
   const favorites = useSelector((state) => state.favorites.cars);

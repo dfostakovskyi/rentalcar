@@ -10,18 +10,18 @@ import Filters from "../../components/Filters/Filters";
 const Catalog = () => {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars.cars);
-  const totalPages = useSelector((state) => state.cars.totalPages); // ✅ Отримуємо totalPages
+  const totalPages = useSelector((state) => state.cars.totalPages);
   const status = useSelector((state) => state.cars.status);
   const filters = useSelector((state) => state.filters);
 
   const [page, setPage] = useState(1);
-  const [currentTotalPages, setCurrentTotalPages] = useState(null); // ✅ Локально зберігаємо totalPages
+  const [currentTotalPages, setCurrentTotalPages] = useState(null);
 
   useEffect(() => {
     setPage(1);
     dispatch(getCars({ filters, page: 1 })).then((response) => {
       if (response.payload && response.payload.totalPages) {
-        setCurrentTotalPages(response.payload.totalPages); // ✅ Зберігаємо totalPages
+        setCurrentTotalPages(response.payload.totalPages);
       }
     });
   }, [dispatch, filters]);
@@ -35,20 +35,23 @@ const Catalog = () => {
   };
 
   return (
-    <div>
+    <div className="catalog">
       <Header />
       <Filters />
-      {status === "loading" && <p>Завантаження...</p>}
-      {status === "failed" && <p>Помилка завантаження даних.</p>}
+      {status === "loading" && <p>Loading...</p>}
+      {status === "failed" && <p>Failed to load data. Please try again.</p>}
 
       <div>
-        {cars.map((car, index) => (
-          <CarCard key={`${car.id}-${index}`} car={car} />
-        ))}
+        {cars.length > 0 ? (
+          cars.map((car, index) => (
+            <CarCard key={`${car.id}-${index}`} car={car} />
+          ))
+        ) : (
+          <p>No results found. Try adjusting your search criteria.</p>
+        )}
       </div>
 
-      {/* ✅ Ховаємо кнопку лише після останнього кліку, а не відразу */}
-      {currentTotalPages && page < currentTotalPages && (
+      {cars.length > 0 && currentTotalPages && page < currentTotalPages && (
         <button onClick={handleLoadMore}>Load More</button>
       )}
     </div>

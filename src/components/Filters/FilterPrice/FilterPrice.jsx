@@ -1,31 +1,43 @@
 //src\components\Filters\FilterPrice\FilterPrice.jsx
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styles from "./FilterPrice.module.css";
 
 const FilterPrice = ({ selectedPrice, setSelectedPrice }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
   const priceOptions = Array.from({ length: 16 }, (_, i) => 30 + i * 10);
 
-  // Оновлена функція вибору ціни
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   const handleSelectPrice = (price) => {
     setSelectedPrice(price);
   };
 
-  // Перемикання списку
   const handleToggleDropdown = () => {
     setDropdownOpen((prev) => !prev);
   };
 
   return (
-    <div className={styles.priceFilter}>
-      <label>Ціна оренди (1 hour):</label>
+    <div className={styles.priceFilter} ref={dropdownRef}>
+      <label className={styles.label}>Price/ 1 hour</label>
       <div className={styles.inputContainer}>
         <input
           type="text"
           name="price"
-          value={selectedPrice || ""}
+          value={selectedPrice ? `To $${selectedPrice}` : "To"}
           placeholder="Choose a price"
           readOnly
           className={styles.priceInput}
@@ -52,7 +64,7 @@ const FilterPrice = ({ selectedPrice, setSelectedPrice }) => {
                 onClick={() => handleSelectPrice(price)}
                 className={selectedPrice === price ? styles.selectedItem : ""}
               >
-                {selectedPrice === price ? <strong>{price}</strong> : price}
+                {`$${price}`}
               </li>
             ))}
           </ul>

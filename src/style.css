@@ -6,20 +6,17 @@
   box-sizing: border-box;
 }
 
-/* Обнулення всіх відступів і бордерів */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Видалення стилів списків */
 ul,
 ol {
   list-style: none;
 }
 
-/* Обнулення типових стилів кнопок */
 button {
   background: none;
   border: none;
@@ -27,27 +24,23 @@ button {
   cursor: pointer;
 }
 
-/* Обнулення шрифтів */
 body {
   font-family: sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
 
-/* Видалення рамки при фокусі */
 input,
 textarea,
 button {
   outline: none;
 }
 
-/* Обнулення стилів посилань */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Обнулення стилів зображень */
 img {
   display: block;
   max-width: 100%;

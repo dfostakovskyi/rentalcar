@@ -9,33 +9,41 @@ const FilterMileage = ({
   setMileageFrom,
   setMileageTo,
 }) => {
-  // Функція для обробки введених значень (цілі числа з пробілами)
-  const handleMileageChange = (setter) => (e) => {
-    let value = e.target.value.replace(/\s/g, "").replace(/\D/g, "");
-    setter(value);
+  const handleMileageChange = (setter, prefix) => (e) => {
+    let rawValue = e.target.value.replace(/\s/g, "").replace(/\D/g, "");
+    let formattedValue = rawValue
+      ? Number(rawValue).toLocaleString("en-US")
+      : "";
+    setter(rawValue);
   };
 
   return (
     <div className={styles.mileageFilter}>
-      <label>Пробіг (km):</label>
+      <label className={styles.label}>Сar mileage / km</label>
       <div className={styles.mileageInputs}>
-        <div>
-          <span>Від:</span>
+        <div className={styles.mileageInputContainerFrom}>
           <input
             type="text"
             placeholder="From"
-            value={mileageFrom}
-            onChange={handleMileageChange(setMileageFrom)}
+            value={
+              mileageFrom
+                ? `From ${Number(mileageFrom).toLocaleString("en-US")}`
+                : "From"
+            }
+            onChange={handleMileageChange(setMileageFrom, "From")}
             className={styles.mileageInput}
           />
         </div>
-        <div>
-          <span>До:</span>
+        <div className={styles.mileageInputContainerTo}>
           <input
             type="text"
             placeholder="To"
-            value={mileageTo}
-            onChange={handleMileageChange(setMileageTo)}
+            value={
+              mileageTo
+                ? `To ${Number(mileageTo).toLocaleString("en-US")}`
+                : "To"
+            }
+            onChange={handleMileageChange(setMileageTo, "To")}
             className={styles.mileageInput}
           />
         </div>

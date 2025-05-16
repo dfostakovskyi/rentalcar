@@ -1,11 +1,15 @@
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #f2f4f7;
   padding: 24px 120px;
-  max-width: 1440px; /* Максимальна ширина */
-  width: 100%; /* Динамічна ширина */
+  max-width: 1440px;
+  width: 100%;
 
   height: 68px;
 }
@@ -30,8 +34,7 @@
   transition: background-color 0.3s;
 }
 
-/* Стиль для активного лінка */
 .navLink.active {
   color: #0b44cd;
-  background-color: transparent; /* Не має бути виділення */
+  background-color: transparent;
 }

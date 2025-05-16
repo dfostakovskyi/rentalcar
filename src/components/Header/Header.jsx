@@ -1,11 +1,21 @@
 //rentalcar\src\components\Header\Header.jsx
 
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { resetFilters } from "../../redux/slices/filtersSlice";
 import styles from "./Header.module.css";
 
 const Header = () => {
-  const location = useLocation(); // Отримуємо поточний шлях
+  const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleCatalogClick = (e) => {
+    e.preventDefault();
+    dispatch(resetFilters());
+    navigate("/catalog", { replace: true });
+  };
 
   return (
     <header className={styles.header}>
@@ -27,6 +37,7 @@ const Header = () => {
           className={`${styles.navLink} ${
             location.pathname === "/catalog" ? styles.active : ""
           }`}
+          onClick={handleCatalogClick}
         >
           Catalog
         </Link>
