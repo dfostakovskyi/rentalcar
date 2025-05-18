@@ -1,64 +1,117 @@
 .carCard {
   width: 276px;
   height: 424px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  background: #fff;
-  padding: 16px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  transition: transform 0.3s ease-in-out;
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
 }
 
-.carCard:hover {
-  transform: scale(1.05);
+.carCard.hidden {
+  opacity: 0;
 }
 
 .carImage {
-  width: 100%;
-  height: 160px;
+  border-radius: 14px;
+  width: 276px;
+  height: 268px;
   object-fit: cover;
-  border-radius: 8px;
+  overflow: hidden;
 }
 
 .favoriteBtn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 16px;
+  right: 16px;
   background: none;
   border: none;
   cursor: pointer;
 }
 
 .favoriteIcon {
-  width: 24px;
-  height: 24px;
-  fill: #ccc;
+  width: 16px;
+  height: 16px;
   transition: fill 0.3s;
 }
 
-.favoriteIcon.active {
-  fill: red;
+.carInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-top: 16px;
+}
+
+.сarInfoDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 11px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #101828;
+  margin-bottom: 8px;
+}
+.model {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #3470ff;
+}
+
+.carAddress {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  color: #8d929a;
+  text-align: left;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.carMileage {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  color: #8d929a;
+  text-align: left;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
 }
 
 .readMoreBtn {
-  margin-top: auto;
-  background: #007bff;
-  color: white;
+  border-radius: 12px;
+  padding: 12px 97px;
+  width: 276px;
+  height: 44px;
+  background-color: #3470ff;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: #ffffff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  margin-top: 28px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .readMoreBtn:hover {
-  background: #0056b3;
-}
-p {
-  margin: 0;
-  padding: 0;
+  background-color: #0b44cd;
 }

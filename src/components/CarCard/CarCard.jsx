@@ -1,15 +1,32 @@
 //src\components\CarCard\CarCard.jsx
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/slices/favoritesSlice";
-import { formatMileage, formatPrice, formatDate } from "../../services/format";
+import {
+  formatMileage,
+  formatPrice,
+  formatDate,
+  formatYear,
+  extractCityAndCountry,
+} from "../../services/format";
 import styles from "./CarCard.module.css";
+import { useNavigate } from "react-router-dom";
 
 const CarCard = ({ car }) => {
+  const [isVisible, setIsVisible] = useState(false);
   const favorites = useSelector((state) => state.favorites.cars);
   const isFavorite = favorites.some((favCar) => favCar.id === car.id);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const toggleFavorite = () => {
     if (isFavorite) {
@@ -19,8 +36,28 @@ const CarCard = ({ car }) => {
     }
   };
 
+  const handleReadMoreClick = () => {
+    navigate(`/catalog/${car.id}`);
+  };
+
+  const line = (
+    <svg
+      width="2"
+      height="16"
+      viewBox="0 0 2 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M1 0V16" stroke="#DADDE1" />
+    </svg>
+  );
+
   return (
-    <div className={styles.carCard}>
+    <div
+      className={`${styles.carCard} ${
+        isVisible ? styles.visible : styles.hidden
+      }`}
+    >
       <img
         src={car.img}
         alt={`${car.brand} ${car.model}`}
@@ -41,29 +78,31 @@ const CarCard = ({ car }) => {
         </svg>
       </button>
 
-      <h2>
-        {car.brand} {car.model} ({car.year})
-      </h2>
-      <p>
-        <strong>Ціна оренди:</strong> {formatPrice(car.rentalPrice)} / добу
-      </p>
-      <p>
-        <strong>Компанія:</strong> {car.rentalCompany}
-      </p>
-      <p>
-        <strong>Адреса:</strong> {car.address}
-      </p>
-      <p>
-        <strong>Тип:</strong> {car.type}
-      </p>
-      <p>
-        <strong>Пробіг:</strong> {formatMileage(car.mileage)}
-      </p>
-      <p>
-        <strong>Дата реєстрації:</strong> {formatDate(car.registrationDate)}
-      </p>
+      <div className={styles.carInfo}>
+        <div className={styles.сarInfoDetails}>
+          <span className={styles.carName}>
+            {car.brand} <span className={styles.model}>{car.model},</span>{" "}
+            {formatYear(car.year)}
+          </span>
+          <span className={styles.price}> {formatPrice(car.rentalPrice)} </span>
+        </div>
+        <div className={styles.carAddress}>
+          {extractCityAndCountry(car.address).city}
+          {line}
+          {extractCityAndCountry(car.address).country}
+          {line}
+          {car.rentalCompany}
+        </div>
+        <div className={styles.carMileage}>
+          {car.type}
+          {line}
+          {formatMileage(car.mileage)}
+        </div>
+      </div>
 
-      <button className={styles.readMoreBtn}>Read more</button>
+      <button className={styles.readMoreBtn} onClick={handleReadMoreClick}>
+        Read more
+      </button>
     </div>
   );
 };

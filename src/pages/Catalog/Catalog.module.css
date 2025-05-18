@@ -3,3 +3,50 @@
   flex-direction: column;
   align-items: center;
 }
+.carslist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 32px;
+  row-gap: 48px;
+  margin-top: 56px;
+  width: 1200px;
+  margin-bottom: 80px;
+}
+.loadMore {
+  border: 1px solid #3470ff;
+  border-radius: 12px;
+  padding: 12px 36px;
+  width: 156px;
+  height: 44px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: #101828;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.loadMore:hover {
+  border: 1px solid #0b44cd;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.noResults {
+  text-align: center;
+  margin-top: 20px;
+}

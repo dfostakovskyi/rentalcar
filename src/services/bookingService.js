@@ -1,3 +1,5 @@
+// src/services/bookingService.js
+
 import axios from "axios";
 const BASE_URL = "https://car-rental-api.goit.global/api";
 

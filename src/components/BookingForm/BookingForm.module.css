@@ -1,0 +1,160 @@
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #101828;
+  margin-bottom: 8px;
+}
+
+:global(.react-datepicker__triangle) {
+  stroke: #3470ff !important;
+  fill: #ffffff !important;
+}
+
+:global(.react-datepicker__header) {
+  background-color: #ffffff;
+  border-bottom: 1px solid #3470ff;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+:global(.react-datepicker__navigation-icon::before),
+:global(.react-datepicker__year-read-view--down-arrow),
+:global(.react-datepicker__month-read-view--down-arrow),
+:global(.react-datepicker__month-year-read-view--down-arrow) {
+  border-color: #3470ff;
+}
+
+:global(.react-datepicker) {
+  border: 1px solid #3470ff;
+  border-radius: 12px;
+}
+
+:global(.react-datepicker__current-month),
+:global(.react-datepicker-time__header),
+:global(.react-datepicker-year-header) {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 120%;
+  text-align: center;
+  color: #101828;
+}
+
+:global(.react-datepicker__day-name),
+:global(.react-datepicker__day),
+:global(.react-datepicker__time-name) {
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 120%;
+  text-align: center;
+}
+
+:global(.react-datepicker__day-name) {
+  color: #8d929a;
+  margin-bottom: 4px;
+}
+
+:global(.react-datepicker__day) {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  text-align: center;
+  color: #101828;
+  margin-bottom: 4px;
+}
+
+:global(.react-datepicker__day--disabled) {
+  color: #8d929a;
+  cursor: not-allowed;
+}
+
+:global(.react-datepicker__day--selected),
+:global(.react-datepicker__day--keyboard-selected) {
+  background-color: #3470ff;
+  color: #ffffff;
+  border-radius: 32px;
+  width: 36px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:global(.react-datepicker__week) {
+  margin-bottom: 4px;
+  width: 252px;
+  height: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customInput {
+  border-radius: 12px;
+  width: 576px;
+  height: 48px;
+  background-color: #f7f7f7;
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #101828;
+  padding: 14px 20px;
+}
+
+.error {
+  border-color: red;
+}
+.customInputArea {
+  border-radius: 12px;
+  padding: 12px 20px;
+  width: 576px;
+  height: 88px;
+  background-color: #f7f7f7;
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #101828;
+  padding: 14px 20px;
+  margin-bottom: 8px;
+}
+
+.submitButton {
+  border-radius: 12px;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
+  background-color: #3470ff;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}

@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerGrid {
+  display: grid;
+  grid-template-columns: 640px 488px;
+  grid-template-rows: auto auto 1fr;
+  grid-column-gap: 72px;
+  grid-row-gap: 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "carImage carData"
+    "carImage information"
+    "booking information";
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 84px;
+}
+
+.header {
+}
+
+.carImage {
+  grid-area: carImage;
+  width: 640px;
+  height: 512px;
+  margin-bottom: 40px;
+}
+
+.carData {
+  grid-area: carData;
+  margin-top: 20px;
+  margin-bottom: 68px;
+}
+
+.booking {
+  grid-area: booking;
+}
+
+.information {
+  grid-area: information;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.noResults {
+  text-align: center;
+  margin-top: 20px;
+}

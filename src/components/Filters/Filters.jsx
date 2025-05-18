@@ -1,6 +1,6 @@
 //src\components\Filters.jsx
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { resetFilters, setFilters } from "../../redux/slices/filtersSlice";
 import FilterBrand from "../Filters/FilterBrand/FilterBrand";
@@ -9,33 +9,30 @@ import FilterMileage from "../Filters/FilterMileage/FilterMileage";
 import { getCars } from "../../redux/slices/carsSlice";
 import { cleanFilters } from "../../utils/cleanFilters";
 import styles from "./Filters.module.css";
+import useSyncFiltersWithRedux from "../../hooks/useSyncFiltersWithRedux";
+import { useState } from "react";
 
 const Filters = () => {
   const dispatch = useDispatch();
   const brands = useSelector((state) => state.brands.brands);
-  const filters = useSelector((state) => state.filters);
-
-  const [selectedBrand, setSelectedBrand] = useState(filters.brand || "");
-  const [selectedPrice, setSelectedPrice] = useState(filters.rentalPrice || "");
-  const [mileageFrom, setMileageFrom] = useState(filters.mileageFrom || "");
-  const [mileageTo, setMileageTo] = useState(filters.mileageTo || "");
-  const [isActive, setIsActive] = useState(false);
+  const {
+    selectedBrand,
+    setSelectedBrand,
+    selectedPrice,
+    setSelectedPrice,
+    mileageFrom,
+    setMileageFrom,
+    mileageTo,
+    setMileageTo,
+    isActive,
+    setIsActive,
+  } = useSyncFiltersWithRedux();
   const [prevFilters, setPrevFilters] = useState(null);
 
-  useEffect(() => {
-    if (
-      filters.brand === "" &&
-      filters.rentalPrice === "" &&
-      filters.mileageFrom === "" &&
-      filters.mileageTo === ""
-    ) {
-      setSelectedBrand("");
-      setSelectedPrice("");
-      setMileageFrom("");
-      setMileageTo("");
-      setIsActive(false);
-    }
-  }, [filters]);
+  const applyFilters = (updatedFilters) => {
+    dispatch(setFilters(updatedFilters));
+    dispatch(getCars({ filters: updatedFilters, page: 1 }));
+  };
 
   const handleToggleFilters = () => {
     const updatedFilters = cleanFilters({
@@ -55,13 +52,11 @@ const Filters = () => {
         setIsActive(false);
         setPrevFilters(null);
       } else {
-        dispatch(setFilters(updatedFilters));
-        dispatch(getCars({ filters: updatedFilters, page: 1 }));
+        applyFilters(updatedFilters);
         setPrevFilters(updatedFilters);
       }
     } else {
-      dispatch(setFilters(updatedFilters));
-      dispatch(getCars({ filters: updatedFilters, page: 1 }));
+      applyFilters(updatedFilters);
       setIsActive(true);
       setPrevFilters(updatedFilters);
     }

@@ -1,19 +1,17 @@
 .container {
-  max-width: 1440px;
-
   width: 100%;
 
-  margin: 0 auto;
   height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .hero {
   background-image: url("../../img/Desktop/Hero.png");
   background-size: cover;
   background-position: center;
   height: 100vh;
-  margin-top: 72px;
+  width: 100%;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {

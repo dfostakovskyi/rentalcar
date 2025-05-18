@@ -1,23 +1,13 @@
 //src\components\Filters\FilterBrand\FilterBrand.jsx
 
 import React, { useEffect, useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getBrands } from "../../../redux/slices/brandsSlice";
 import styles from "./FilterBrand.module.css";
+import useFetchBrands from "../../../hooks/useFetchBrands";
 
 const FilterBrand = ({ selectedBrand, setSelectedBrand }) => {
-  const dispatch = useDispatch();
-  const brands = useSelector((state) => state.brands.brands);
-  const brandsStatus = useSelector((state) => state.brands.status);
-
+  const { brands, brandsStatus } = useFetchBrands();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    if (brandsStatus === "idle") {
-      dispatch(getBrands());
-    }
-  }, [dispatch, brandsStatus]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
