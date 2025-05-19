@@ -71,7 +71,7 @@ const CarCard = ({ car }) => {
           }`}
         >
           <use
-            href={`../../../public/assets/sprite.svg#${
+            href={`/assets/sprite.svg#${
               isFavorite ? "Property 1=Active" : "Property 1=Default"
             }`}
           />
